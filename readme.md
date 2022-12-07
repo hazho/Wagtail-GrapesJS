@@ -1,32 +1,15 @@
-# Wagtail demo project
+# Wagtail x GrapesJs
 
-This is a demonstration project for the amazing [Wagtail CMS](https://github.com/wagtail/wagtail).
+This is an integration of the amazing [Wagtail CMS](https://github.com/wagtail/wagtail) and [GrapesJs](https://github.com/artf/grapesjs) to enable Visual page building. The visual page builder is intended to be used with wagtail and any python-based CMS.
 
-The demo site is designed to provide examples of common features and recipes to introduce you to Wagtail development. Beyond the code, it will also let you explore the admin / editorial interface of the CMS.
+The demo site [*bakerydemo*](https://github.com/wagtail/bakerydemo) is designed to provide examples of common features and recipes to introduce you to Wagtail development. Beyond the code, it will also let you explore the admin / editorial interface of the CMS. Additinally, it also contains the necessary configurations required for the Visual page builder built with GrapesJs.
 
-Note we do _not_ recommend using this project to start your own site - the demo is intended to be a springboard to get you started. Feel free to copy code from the demo into your own project.
 
-### Wagtail Features Demonstrated in This Demo
+### Resources
+- [Wagtail Bakerydemo Code & Documentation](https://github.com/wagtail/bakerydemo)
+- [GrapesJs Documentation & Demo](https://grapesjs.com/)
+- [Django and GrapeJS Tutorial](https://www.youtube.com/watch?v=TOLCkFqd4nI)
 
-This demo is aimed primarily at developers wanting to learn more about the internals of Wagtail, and assumes you'll be reading its source code. After browsing the features, pay special attention to code we've used for:
-
-- Dividing a project up into multiple apps
-- Custom content models and "contexts" in the "breads" and "locations" apps
-- A typical weblog in the "blog" app
-- Example of using a "base" app to contain misc additional functionality (e.g. Contact Form, About, etc.)
-- "StandardPage" model using mixins borrowed from other apps
-- Example of customizing the Wagtail Admin via _wagtail_hooks_
-- Example of using the Wagtail "snippets" system to represent bread categories, countries and ingredients
-- Example of a custom "Galleries" feature that pulls in images used in other content types in the system
-- Example of creating ManyToMany relationships via the Ingredients feature on BreadPage
-- Lots more
-
-**Document contents**
-
-- [Installation](#installation)
-- [Next steps](#next-steps)
-- [Contributing](#contributing)
-- [Other notes](#other-notes)
 
 # Installation
 
@@ -45,7 +28,7 @@ If you want a publicly accessible demo site, [deploy to Heroku](#deploy-to-herok
 
 Set up a development environment and run this demo website with a single click (requires a Github account):
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/wagtail/bakerydemo/)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/hazho/Wagtail-GrapesJS)
 
 Once Gitpod has fully started, and a preview of the bakery website has appeared in the "Simple Browser" panel, click the arrow button to the right of the URL bar to open the website in a new tab.
 Go to `/admin/` and login with `admin / changeme`.
@@ -210,7 +193,7 @@ Hopefully after you've experimented with the demo you'll want to create your own
 
 # Contributing
 
-If you're a Python or Django developer, fork the repo and get stuck in! If you'd like to get involved you may find our [contributing guidelines](https://github.com/wagtail/bakerydemo/blob/master/contributing.md) a useful read.
+If you're a Python or Django developer, fork the repo and get stuck in! If you'd like to get involved you may find our [contributing guidelines](https://github.com/hazho/Wagtail-GrapesJS/blob/main/contributing.md) a useful read.
 
 ### Preparing this archive for distribution
 
@@ -223,29 +206,6 @@ prettier --write bakerydemo/base/fixtures/bakerydemo.json
 
 Please optimize any included images to 1200px wide with JPEG compression at 60%. Note that `media/images` is ignored in the repo by `.gitignore` but `media/original_images` is not. Wagtail's local image "renditions" are excluded in the fixture recipe above.
 
-Make a pull request to https://github.com/wagtail/bakerydemo
-
-# Other notes
-
-### Note on demo search
-
-Because we can't (easily) use ElasticSearch for this demo, we use wagtail's native DB search.
-However, native DB search can't search specific fields in our models on a generalized `Page` query.
-So for demo purposes ONLY, we hard-code the model names we want to search into `search.views`, which is
-not ideal. In production, use ElasticSearch and a simplified search query, per
-[https://docs.wagtail.org/en/stable/topics/search/searching.html](https://docs.wagtail.org/en/stable/topics/search/searching.html).
-
-### Sending email from the contact form
-
-The following setting in `base.py` and `production.py` ensures that live email is not sent by the demo contact form.
-
-`EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'`
-
-In production on your own site, you'll need to change this to:
-
-`EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'`
-
-and configure [SMTP settings](https://docs.djangoproject.com/en/3.2/topics/email/#smtp-backend) appropriate for your email provider.
 
 ### Ownership of demo content
 
