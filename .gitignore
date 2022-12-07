@@ -10,9 +10,6 @@ dist/
 # Compiled Java class files
 *.class
 
-.env
-env/
-
 # Compiled Python bytecode
 *.py[cod]
 
@@ -52,3 +49,9 @@ Thumbs.db
 *.wmv
 
 logs/*.json
+
+.env
+env/
+
+*.sqlite
+*.sqlite3
