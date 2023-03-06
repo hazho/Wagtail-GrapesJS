@@ -19,5 +19,5 @@ The demo site [*bakerydemo*](https://github.com/wagtail/bakerydemo) is designed 
 
 # Collaborators
 
-- [HazhoHuman](https://github.com/hazho)
+- [HazhoHuman](https://github.com/hazho)  (No longer working on this)
 - [Itzomen](https://github.com/itzomen)
